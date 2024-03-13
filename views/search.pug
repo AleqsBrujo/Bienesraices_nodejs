@@ -1,0 +1,26 @@
+extends ./layout/preview
+
+block content
+                
+    section(class='py-4')
+        h2(class='text-center text-3xl font-extrabold pt-2 ')= page
+
+        if properties.length
+            div(class='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14')
+                each propertie in properties
+                    include ./templates/card
+
+        else 
+            p(class='text-center text-gray-800 text-sm py-10') No Hay Resultados            
+
+        
+                                             
+
+        
+
+    
+
+
+     
+    
+    

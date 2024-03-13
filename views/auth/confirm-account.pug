@@ -1,0 +1,18 @@
+extends ../layout/index
+
+block content
+    div.py-7
+        h1.text-4xl.my-10.text-center.font-extrabold.text-gray-800 Bienes
+            span.font-normal Raices 
+        h2.text-center.text-2xl.font-extrabold.text-gray-700= page
+
+    div(class='bg-gray-50 shadow py-6 px-4 rounded-lg max-w-md mx-auto')
+        p(class= error ?  'bg-red-500' : 'bg-green-500').py-2.px-5.rounded-lg.w-full.font-bold.uppercase.text-center.text-white= confirmMsg
+        
+        if !error
+             a(href="/auth/login" class='mt-2 block text-gray-700 text-m text-center font-bold hover:underline hover:underline-offset-2') Inicia Sesión
+
+        if error
+            div.flex.items-center.justify-between.my-2        
+                a(href="/auth/newUser" class='text-gray-700 text-xs hover:font-bold hover:underline') ¿Aún no tienes cuenta? Registrate
+                a(href="/auth/pass-recover" class='text-gray-700 text-xs hover:font-bold hover:underline') Recupera tú Password    

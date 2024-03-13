@@ -1,0 +1,27 @@
+extends ../layout/admin
+
+block content
+    //- pre= JSON.stringify(messages, undefined, 2)
+    h2(class='text-2xl font-extrabold text-center my-10') Mensajes
+
+    a(href='/my-properties' class='rounded py-1 px-6 bg-black text-sm font-bold text-center text-white uppercase my-5 inline-bloc w-full sm:w-auto') Volver
+
+    div(class='mx-auto max-w-4xl bg-white shadow-md rounded')
+        if messages.length
+            ul 
+                each message in messages
+                    li(class='border-gray-200 border-b p-5')
+                        p(class='font-bold text-gray-800') Nombre:  
+                            span(class='font-normal')= message.User.name
+
+                        p(class='font-bold text-gray-800') Email:  
+                            span(class='font-normal')= message.User.email    
+
+                        p(class='font-bold text-gray-800') Mensaje:  
+                            span(class='font-normal')= message.message
+
+                        p(class='font-bold text-gray-800') Enviado:  
+                            span(class='font-normal')= dateFormat(message.createdAt)        
+        else 
+            p(class='text-center text-gray-600 p-5') No hay mensajes    
+
